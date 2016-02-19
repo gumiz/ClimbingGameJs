@@ -1,3 +1,6 @@
+var freezeTimer = true;
+var timer = 0;
+var items = ["item5", "item4", "item3", "item2", "item1"];
 
 var selected = null,
     x_pos = 0, y_pos = 0,
@@ -29,6 +32,18 @@ var initElement = function(id) {
     };
 };
 
+function removeItem() {
+    var item = items.pop();
+    var obj = document.getElementById(item);
+    obj.style.visibility = "hidden";
+    if (items.length == 0)
+        stopTimer();
+}
+
+function setItemVisible(itemId) {
+    document.getElementById(itemId).style.visibility = "visible";
+}
+
 window.onload = function() {
 
     initElement('item1');
@@ -40,4 +55,50 @@ window.onload = function() {
     document.onmousemove = _move_elem;
     document.onmouseup = _destroy;
 
+    setInterval(function(){
+        if (freezeTimer) return;
+        var d = new Date();
+        var currentTime = d.getTime();
+        var clock = document.getElementById("clock");
+        debugger;
+        var value = (Number(currentTime) - Number(timer)) / 1000;
+        var result = value.toFixed(1);
+        clock.innerHTML = result;
+
+    }, 10);
 };
+
+function restartGame() {
+    items = ["item5", "item4", "item3", "item2", "item1"];
+    setItemVisible('item1');
+    setItemVisible('item2');
+    setItemVisible('item3');
+    setItemVisible('item4');
+    setItemVisible('item5');
+    startTimer();
+}
+
+function startTimer() {
+    freezeTimer = false;
+    var d = new Date();
+    timer = d.getTime();
+    document.getElementById("clock").innerHtml = "0.0";
+    document.getElementById("clock").style.visibility = "visible";
+}
+function stopTimer() {
+    freezeTimer = true;
+}
+function restartTimer() {
+    document.getElementById("clock").innerHtml = "0.0";
+}
+
+$(window).keypress(function (e) {
+    if (e.keyCode === 0 || e.keyCode === 32) {
+        e.preventDefault();
+        removeItem();
+    }
+    if(e.which == 13) {
+        restartGame();
+    }
+});
+
