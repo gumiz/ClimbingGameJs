@@ -1,3 +1,4 @@
+var audioElement;
 var freezeTimer = true;
 var timer = 0;
 var items = ["item5", "item4", "item3", "item2", "item1"];
@@ -32,6 +33,10 @@ var initElement = function(id) {
     };
 };
 
+function playSound() {
+    audioElement.play();
+}
+
 function removeItem() {
     var item = items.pop();
     var obj = document.getElementById(item);
@@ -45,6 +50,8 @@ function setItemVisible(itemId) {
 }
 
 window.onload = function() {
+    audioElement = document.createElement('audio');
+    audioElement.setAttribute('src', 'audio/audio.mp3');
 
     initElement('item1');
     initElement('item2');
@@ -96,6 +103,7 @@ $(window).keypress(function (e) {
     if (e.keyCode === 0 || e.keyCode === 32) {
         e.preventDefault();
         removeItem();
+        playSound();
     }
     if(e.which == 13) {
         restartGame();
