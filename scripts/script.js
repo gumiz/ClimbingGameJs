@@ -70,6 +70,7 @@ function resetActor(itemId) {
 }
 
 function resetActors() {
+    items = ["item5", "item4", "item3", "item2", "item1"];
     resetActor('item1');
     resetActor('item2');
     resetActor('item3');
@@ -78,7 +79,7 @@ function resetActors() {
 }
 
 window.onload = function() {
-    hideResults();
+    showResults();
     document.getElementById('actorPicker').onchange=function(){
         resetActors();
     };
@@ -90,6 +91,7 @@ window.onload = function() {
     audioWin.setAttribute('src', 'audio/win.mp3');
 
     initElement('timer');
+    initElement('timerBig');
     initElement('legend');
     initElement('item1');
     initElement('item2');
@@ -116,7 +118,6 @@ function restartGame() {
     hideResults();
     restartTimer();
     playCountdown();
-    items = ["item5", "item4", "item3", "item2", "item1"];
     resetActors();
     setTimeout(function(){
         startTimer();
@@ -150,11 +151,15 @@ function showResults() {
     document.getElementById("clockBig").innerHTML = document.getElementById("clock").innerHTML;
     document.getElementById("clock").style.visibility = "hidden";
     document.getElementById("clockBig").style.visibility = "visible";
+    document.getElementById("menu").style.visibility = "visible";
+    document.getElementById("legend").style.visibility = "visible";
 }
 
 function hideResults() {
     document.getElementById("clock").style.visibility = "visible";
     document.getElementById("clockBig").style.visibility = "hidden";
+    document.getElementById("menu").style.visibility = "hidden";
+    document.getElementById("legend").style.visibility = "hidden";
 }
 
 $(window).keypress(function (e) {
@@ -166,6 +171,8 @@ $(window).keypress(function (e) {
     if(e.which == 13) {
         if (timerIsRunning())
             stopTimer();
+        else if (items.length==0)
+            resetActors();
         else
             restartGame();
     }
