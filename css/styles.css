@@ -1,16 +1,27 @@
 body {background-color: black}
 
 .legend{
-    width: 100%; text-align: center; fotn-weight: bold; color:green;  position:absolute; top: 90vh;
+    width: 100%; text-align: center; fotn-weight: bold; color:green;  position:absolute; top: 90vh; cursor:move;
+}
+.menu{
+    width: 100%; text-align: right; position:absolute; top: 0vh; background-color: black;
 }
 
 .timer{
-    font-size: 60px; width: 100%; text-align: center; fotn-weight: bold; color:green;  position:absolute; top: 10px;
+    font-size: 60px; width: 100%; text-align: center; fotn-weight: bold; color:green;  position:absolute; top: 10px; cursor:move;
 }
 
-.item {
+.timerBig{
+    font-size: 200px; width: 100%; text-align: center; fotn-weight: bold; color:green;  position:absolute; top: 40vh; cursor:move;
+}
+
+.diamond {
     width:100px;  height:80px;  background-image:url('../img/diamond.png'); background-size: 100px 80px;  color:white;  cursor:move;  position:absolute;
 }
+.ninjago {
+    width:100px;  height:80px;  background-image:url('../img/ninjago.png'); background-size: 100px 80px;  color:white;  cursor:move;  position:absolute;
+}
+
 .itemTxt {
-    font-size: 50px; font-weight: bold; margin-left: 35px; color: black;
+    font-size: 40px; font-weight: bold; margin-left: 40px; color: red;
 }

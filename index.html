@@ -6,30 +6,40 @@
 </head>
 
 <body>
-    <div class="legend">
+    <div id="legend" class="legend">
         <span>
-            SPACE to mark<br/>
-            ENTER to restart
+            ENTER to restart, SPACE to pick
         </span>
     </div>
-    <div class="timer">
+    <div id="timer" class="timer">
         <span id="clock">0.0</span>
     </div>
 
-    <div id="item1" class="item" >
-        <span class="itemTxt">1</span>
+    <div id="timerBig" class="timerBig">
+        <span id="clockBig">0.0</span>
     </div>
-    <div id="item2" class="item" >
-        <span class="itemTxt">2</span>
-    </div>
-    <div id="item3" class="item" >
-        <span class="itemTxt">3</span>
-    </div>
-    <div id="item4" class="item" >
-        <span class="itemTxt">4</span>
-    </div>
-    <div id="item5" class="item" >
+
+    <div id="item5" class="diamond" >
         <span class="itemTxt">5</span>
     </div>
+    <div id="item4" class="diamond" style="top: 100px">
+        <span class="itemTxt">4</span>
+    </div>
+    <div id="item3" class="diamond" style="top: 200px">
+        <span class="itemTxt">3</span>
+    </div>
+    <div id="item2" class="diamond" style="top: 300px">
+        <span class="itemTxt">2</span>
+    </div>
+    <div id="item1" class="diamond" style="top: 400px">
+        <span class="itemTxt">1</span>
+    </div>
+    <div class="menu">
+        <select id="actorPicker">
+            <option value="1">diamond</option>
+            <option value="2">ninjago</option>
+        </select>
+    </div>
+
 </body>
 </html>
