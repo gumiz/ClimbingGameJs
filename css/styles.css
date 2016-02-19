@@ -1,0 +1,8 @@
+body {background-color: black}
+
+.item {
+    width:100px;  height:80px;  background-image:url('../img/diamond.png'); background-size: 100px 80px;  color:white;  cursor:move;  position:absolute;
+}
+.itemTxt {
+    font-size: 50px; font-weight: bold; margin-left: 35px; color: black;
+}
